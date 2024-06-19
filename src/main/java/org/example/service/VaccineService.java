@@ -4,7 +4,6 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
 import org.example.pojo.Vaccine;
 
-import java.io.Serializable;
 import java.util.List;
 
 // 疫苗管理服务接口

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.mapper.UserMapper">
+    <!-- int delete(int id); -->
+    <delete id="delete" parameterType="_int">
+        delete from t_user where id=#{id};
+    </delete>
+    <!-- List<User> list(@Param("start") int start,@Param("size") int size); -->
+    <select id="list" resultType="org.example.pojo.User">
+        select id,name,id_card,password,phone from t_user LIMIT #{start},#{size};
+    </select>
+    <!-- int count(); -->
+    <select id="count" resultType="_int">
+        select count(id) from t_user;
+    </select>
+    <!-- Integer decrementAfterId(Integer deletedId); -->
+    <update id="decrementAfterId" parameterType="java.lang.Integer">
+        UPDATE t_user SET id=id-1 WHERE id>#{deletedId};
+    </update>
+</mapper>

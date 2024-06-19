@@ -4,14 +4,14 @@ Server:
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver     # mysql8.0及以上版本要加cj
-    url: jdbc:mysql://localhost:3306/ymyy?useSSL=true&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    url: jdbc:mysql:///ymyy?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8&autoReconnect=true&rewriteBatchedStatements=true
     username: root
-    password: root
-  #    druid:
-  #      filters: start
-  #      max-active: 20
-  #      initial-size: 1
-  #      max-wait: 60000
+    password: 123456
+    druid:
+      filters: start
+      max-active: 20
+      initial-size: 1
+      max-wait: 60000
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher

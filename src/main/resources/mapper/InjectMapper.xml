@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.mapper.InjectMapper">
+    <resultMap id="injectMap" type="org.example.pojo.Inject">
+        <id property="id" column="id"/>
+        <result property="userId" column="user_id"/>
+        <result property="inoSiteId" column="ino_site_id"/>
+        <result property="date" column="date"/>
+        <result property="times" column="times"/>
+        <association property="userBean" column="user_id"
+                     select="org.example.mapper.UserMapper.selectById"/>
+        <association property="inoSiteBean" column="ino_site_id"
+                     select="org.example.mapper.InoSiteMapper.selectById"/>
+    </resultMap>
+    <!-- int createOrder(@Param("userId") int userId,@Param("inoSiteId") int inoSiteId,@Param("times") String times); -->
+    <insert id="createOrder">
+        INSERT INTO t_inject(user_id,ino_site_id,date,times)
+        VALUES(#{userId},#{inoSiteId},curdate(),#{times});
+    </insert>
+</mapper>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.mapper.InoSiteMapper">
+    <resultMap id="inoSiteMap" type="org.example.pojo.InoSite">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="address" column="address"/>
+        <result property="startDate" column="start_date"/>
+        <result property="endDate" column="end_date"/>
+        <result property="vacId" column="vac_id"/>
+        <association property="vaccineBean" column="vac_id"
+                     select="org.example.mapper.VaccineMapper.selectById"/>
+    </resultMap>
+    <!-- InoSite selectInoSiteByOrderId(int id); -->
+<!--    <select id="selectInoSiteByOrderId" parameterType="_int" resultMap="inoSiteMap">-->
+<!--        select d.* from t_ino_site d INNER JOIN t_inject ud-->
+<!--            on ud.ino_site_id=d.id where ud.id=#{id};-->
+<!--    </select>-->
+    <!-- int count(); -->
+    <select id="count" resultType="_int">
+        select count(id) from t_ino_site;
+    </select>
+</mapper>

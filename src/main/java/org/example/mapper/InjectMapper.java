@@ -1,7 +1,7 @@
 package org.example.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import org.apache.ibatis.annotations.*;
+import org.apache.ibatis.annotations.Param;
 import org.example.pojo.Inject;
 import org.springframework.stereotype.Repository;
 
