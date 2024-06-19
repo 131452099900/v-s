@@ -1,0 +1,26 @@
+Server:
+  port: 9002 # 配置服务端口
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver     # mysql8.0及以上版本要加cj
+    url: jdbc:mysql://localhost:3306/ymyy?useSSL=true&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    username: root
+    password: root
+  #    druid:
+  #      filters: start
+  #      max-active: 20
+  #      initial-size: 1
+  #      max-wait: 60000
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/**Mapper.xml # mapper配置文件的位置: 当前类路径下的mapper路径下，以Mapper结尾的xml文件
+  type-aliases-package: org.example.pojo    # 别名识别，包路径扫描，配置为pojo类所在的包路径
+  configuration:
+    map-underscore-to-camel-case: true      # java驼峰式命名和Mysql中匈牙利式下划线命名转换
+    use-generated-keys: true                # 开启主键生成策略
+    # 这个配置会将执行的sql打印出来，在开发或测试的时候可以用
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
